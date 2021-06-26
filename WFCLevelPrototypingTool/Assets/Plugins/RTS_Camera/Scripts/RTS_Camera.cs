@@ -212,7 +212,8 @@ namespace RTS_Cam
                 desiredMove = Quaternion.Euler(new Vector3(0f, transform.eulerAngles.y, 0f)) * desiredMove;
                 desiredMove = m_Transform.InverseTransformDirection(desiredMove);
 
-                m_Transform.Translate(desiredMove, Space.Self);
+                //m_Transform.Translate(desiredMove, Space.Self);
+                pivotAround.transform.Translate(desiredMove, Space.Self);
             }
 
             if(useScreenEdgeInput) {
@@ -241,8 +242,10 @@ namespace RTS_Cam
                 desiredMove *= Time.deltaTime;
                 desiredMove = Quaternion.Euler(new Vector3(0f, transform.eulerAngles.y, 0f)) * desiredMove;
                 desiredMove = m_Transform.InverseTransformDirection(desiredMove);
+                desiredMove.y = 0;
 
-                m_Transform.Translate(desiredMove, Space.World);
+                //m_Transform.Translate(desiredMove, Space.World);
+                pivotAround.transform.Translate(desiredMove, Space.Self);
             }
         }
 
@@ -268,8 +271,10 @@ namespace RTS_Cam
                 difference = targetHeight - distanceToGround;
 
             float camera_posZ = m_Transform.position.z + (m_Transform.position.y - (targetHeight + difference));
-            m_Transform.position = Vector3.Lerp(m_Transform.position,
-                new Vector3(m_Transform.position.x, targetHeight + difference, camera_posZ), Time.deltaTime * heightDampening);
+            print(zoomPos);
+            m_Transform.Translate(new Vector3(0, 0, 1) * zoomPos, Space.Self);
+            /*m_Transform.position = Vector3.Lerp(m_Transform.position,
+                new Vector3(m_Transform.position.x, targetHeight + difference, camera_posZ), Time.deltaTime * heightDampening);*/
         }
 
         /// <summary>
@@ -281,22 +286,8 @@ namespace RTS_Cam
                 transform.Rotate(Vector3.up, RotationDirection * Time.deltaTime * rotationSped, Space.World);
 
             if(useMouseRotation && Input.GetKey(mouseRotationKey)) {
-                m_Transform.RotateAround(pivotAround.transform.position, Vector3.up, -MouseAxis.x * Time.deltaTime * mouseRotationSpeed);
-                m_Transform.RotateAround(pivotAround.transform.position, Vector3.right, -MouseAxis.y * Time.deltaTime * mouseRotationSpeed);
-
-                Vector3 rotationVector = new Vector3(m_Transform.rotation.eulerAngles.x, m_Transform.rotation.eulerAngles.y, 0);
-                m_Transform.eulerAngles = rotationVector;
-                //m_Transform.LookAt(pivotAround.transform);
-
-                /*Vector3 offset = m_Transform.position - pivotAround.transform.position;
-                m_Transform.position = pivotAround.transform.position + Vector3.ClampMagnitude(offset, radius);*/
-
-                /*timer += Time.deltaTime * rotationSped;
-
-                float x = -Mathf.Cos(timer) * -MouseAxis.x;
-                float y = Mathf.Sin(timer) * -MouseAxis.y;
-                Vector3 pos = new Vector3(x, y, m_Transform.position.z);
-                m_Transform.transform.position = pos + pivotAround.transform.position;*/
+                pivotAround.transform.Rotate(Vector3.up, -MouseAxis.x * Time.deltaTime * mouseRotationSpeed);
+                //pivotAround.transform.Rotate(Vector3.right, -MouseAxis.y * Time.deltaTime * mouseRotationSpeed);
             }
         }
 
