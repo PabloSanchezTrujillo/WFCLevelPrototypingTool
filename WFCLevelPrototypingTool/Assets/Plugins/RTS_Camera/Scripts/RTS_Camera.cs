@@ -254,7 +254,7 @@ namespace RTS_Cam
         /// </summary>
         private void HeightCalculation()
         {
-            float Z_pos = m_Transform.position.z;
+            /*float Z_pos = m_Transform.position.z;
             float Y_pos = m_Transform.position.y;
             float distanceToGround = DistanceToGround();
             if(useScrollwheelZooming)
@@ -268,13 +268,23 @@ namespace RTS_Cam
             float difference = 0;
 
             if(distanceToGround != targetHeight)
-                difference = targetHeight - distanceToGround;
+                difference = targetHeight - distanceToGround;*/
 
-            float camera_posZ = m_Transform.position.z + (m_Transform.position.y - (targetHeight + difference));
-            print(zoomPos);
-            m_Transform.Translate(new Vector3(0, 0, 1) * zoomPos, Space.Self);
-            /*m_Transform.position = Vector3.Lerp(m_Transform.position,
-                new Vector3(m_Transform.position.x, targetHeight + difference, camera_posZ), Time.deltaTime * heightDampening);*/
+            //print(scrollWheelZoomingSensitivity);
+            //print(m_Transform.localEulerAngles);
+
+            if(ScrollWheel > 0 && m_Transform.localPosition.z < -2.5f) {
+                m_Transform.Translate(new Vector3(0, 0, 1) * scrollWheelZoomingSensitivity, Space.Self);
+            }
+            if(ScrollWheel < 0 && m_Transform.localPosition.z > -20) {
+                m_Transform.Translate(new Vector3(0, 0, -1) * scrollWheelZoomingSensitivity, Space.Self);
+            }
+            Vector3 cameraPosition = m_Transform.position;
+            cameraPosition.y = Mathf.Clamp(m_Transform.position.y, 2, 20);
+            //cameraPosition.z = Mathf.Clamp(m_Transform.position.z, -2, -22);
+            m_Transform.position = cameraPosition;
+            print(m_Transform.localPosition.z);
+            //m_Transform.localEulerAngles = new Vector3(43, 0, 0);
         }
 
         /// <summary>
