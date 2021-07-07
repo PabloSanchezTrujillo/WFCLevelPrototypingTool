@@ -283,7 +283,6 @@ namespace RTS_Cam
             cameraPosition.y = Mathf.Clamp(m_Transform.position.y, 2, 20);
             //cameraPosition.z = Mathf.Clamp(m_Transform.position.z, -2, -22);
             m_Transform.position = cameraPosition;
-            print(m_Transform.localPosition.z);
             //m_Transform.localEulerAngles = new Vector3(43, 0, 0);
         }
 

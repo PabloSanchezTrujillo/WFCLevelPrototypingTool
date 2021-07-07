@@ -10,6 +10,7 @@ public class TileButton : MonoBehaviour
     [SerializeField] private Color unoccupiedTile;
     [SerializeField] private Color occupiedTile;
 
+    private Tile parentTile;
     private Button tileButton;
     private bool occupied;
 
@@ -17,6 +18,11 @@ public class TileButton : MonoBehaviour
     {
         tileButton = GetComponent<Button>();
         occupied = false;
+    }
+
+    private void Start()
+    {
+        parentTile = transform.parent.GetComponentInParent<Tile>();
     }
 
     public void BuildOnTile()
@@ -30,6 +36,10 @@ public class TileButton : MonoBehaviour
             ColorBlock buttonColors = tileButton.colors;
             buttonColors.highlightedColor = occupiedTile;
             tileButton.colors = buttonColors;
+
+            parentTile.Index = 1;
+
+            transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId);
         }
     }
 }
