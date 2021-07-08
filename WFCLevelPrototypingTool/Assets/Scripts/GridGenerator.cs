@@ -32,8 +32,6 @@ public class GridGenerator : MonoBehaviour
     {
         int id = 0;
 
-        // TODO: Crear una matriz de int (los ID de cada tile) al crear el grid
-
         for(int row = 0; row < rows; row++) {
             for(int col = 0; col < cols; col++) {
                 GameObject tileObject = Instantiate(tile, transform);

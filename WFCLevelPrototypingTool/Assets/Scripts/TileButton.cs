@@ -37,7 +37,7 @@ public class TileButton : MonoBehaviour
             buttonColors.highlightedColor = occupiedTile;
             tileButton.colors = buttonColors;
 
-            parentTile.Index = 1;
+            parentTile.ObjectIndex = 1;
 
             transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId);
         }

@@ -5,11 +5,11 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     [field: SerializeField] public int TileId { get; set; }
-    [field: SerializeField] public int Index { get; set; }
+    [field: SerializeField] public int ObjectIndex { get; set; }
     [field: SerializeField] public int[] Neighbours { get; set; }
 
     private void Awake()
     {
-        Index = 0;
+        ObjectIndex = 0;
     }
 }
