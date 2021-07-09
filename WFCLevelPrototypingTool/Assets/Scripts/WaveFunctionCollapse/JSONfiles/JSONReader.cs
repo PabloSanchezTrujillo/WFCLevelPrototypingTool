@@ -16,7 +16,7 @@ public class JSONReader : MonoBehaviour
     {
         Objects jsonObject = JsonUtility.FromJson<Objects>(JSONFile.text);
 
-        print(jsonObject.ObjectPlaced[0].Index);
+        /*print(jsonObject.ObjectPlaced[0].Index);
         print(jsonObject.ObjectPlaced[0].Name);
         foreach(int n in jsonObject.ObjectPlaced[0].Neighbours.TopNeighbours) {
             print(n);
@@ -27,6 +27,6 @@ public class JSONReader : MonoBehaviour
         print(jsonObject.ObjectPlaced[0].Replacements[1].Index);
         foreach(int n in jsonObject.ObjectPlaced[0].Replacements[1].Neighbours.RightNeighbours) {
             print(n);
-        }
+        }*/
     }
 }

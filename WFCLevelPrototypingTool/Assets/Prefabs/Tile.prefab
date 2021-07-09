@@ -245,8 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a96e3298da3f214cb590b4bb672aa2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ObjectToPlace>k__BackingField: {fileID: 6403097607426045216, guid: b5aa532e00e0cf348bde2ff51dac2a98, type: 3}
   tile: {fileID: 6078225266304818113}
-  objectToPlace: {fileID: 6403097607426045216, guid: b5aa532e00e0cf348bde2ff51dac2a98, type: 3}
   unoccupiedTile: {r: 0.7, g: 0.9, b: 0.5, a: 0}
   occupiedTile: {r: 0.9, g: 0.4, b: 0.4, a: 1}
 --- !u!1 &3971443668076079275
@@ -694,8 +694,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <TileId>k__BackingField: 0
-  <Index>k__BackingField: 0
+  <ObjectIndex>k__BackingField: 0
   <Neighbours>k__BackingField: 
+  tileButton: {fileID: 5636629614037875567}
 --- !u!1 &6470339797146770021
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class TileButton : MonoBehaviour
 {
+    [field: SerializeField] public GameObject ObjectToPlace { get; set; }
+
     [SerializeField] private GameObject tile;
-    [SerializeField] private GameObject objectToPlace;
     [SerializeField] private Color unoccupiedTile;
     [SerializeField] private Color occupiedTile;
 
@@ -28,7 +29,7 @@ public class TileButton : MonoBehaviour
     public void BuildOnTile()
     {
         if(!occupied) {
-            GameObject objectPlaced = Instantiate(objectToPlace, tile.transform, false);
+            GameObject objectPlaced = Instantiate(ObjectToPlace, tile.transform, false);
             objectPlaced.transform.localPosition = Vector3.zero;
 
             occupied = true;
