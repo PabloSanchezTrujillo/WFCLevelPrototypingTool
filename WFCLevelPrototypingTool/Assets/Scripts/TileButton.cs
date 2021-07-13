@@ -29,18 +29,24 @@ public class TileButton : MonoBehaviour
     public void BuildOnTile()
     {
         if(!occupied) {
+            // Instantiate the new object
             GameObject objectPlaced = Instantiate(ObjectToPlace, tile.transform, false);
             objectPlaced.transform.localPosition = Vector3.zero;
 
+            // Mark the tile as occupied
             occupied = true;
 
+            // Change the tile button's color
             ColorBlock buttonColors = tileButton.colors;
             buttonColors.highlightedColor = occupiedTile;
             tileButton.colors = buttonColors;
 
-            parentTile.ObjectIndex = 1;
+            // Change the tile's index to the new object index
+            BuildingObject buildingObject = ObjectToPlace.GetComponent<BuildingObject>();
+            parentTile.ObjectIndex = buildingObject.ObjectIndex;
 
-            transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId);
+            // Backtrack the grid
+            transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId, parentTile.ObjectIndex);
         }
     }
 }

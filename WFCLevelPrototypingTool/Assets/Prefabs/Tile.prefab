@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a96e3298da3f214cb590b4bb672aa2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ObjectToPlace>k__BackingField: {fileID: 6403097607426045216, guid: b5aa532e00e0cf348bde2ff51dac2a98, type: 3}
+  <ObjectToPlace>k__BackingField: {fileID: 4607866688880616659, guid: 3d910551b2586b2468240635dc014b52, type: 3}
   tile: {fileID: 6078225266304818113}
   unoccupiedTile: {r: 0.7, g: 0.9, b: 0.5, a: 0}
   occupiedTile: {r: 0.9, g: 0.4, b: 0.4, a: 1}

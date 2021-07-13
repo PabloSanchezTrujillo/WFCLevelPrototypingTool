@@ -1,36 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Backtracking : MonoBehaviour
 {
-    public bool BacktrackGrid(List<int> gridIndex, List<int[]> gridConnections, int start, List<int> visited, List<int> path)
+    private Objects jsonObject;
+
+    private void Awake()
     {
-        // The algorithm has visited all the grid
-        if(visited.Count == gridIndex.Count) {
-            ShowPath(path);
-            return true;
-        }
-
-        // Check if visited doesn't have the start value
-        if(!visited.Contains(start)) {
-            visited.Add(start);
-        }
-        int[] neighbours = gridConnections[start];
-
-        foreach(int i in neighbours) {
-            if(!visited.Contains(i)) {
-                if(BacktrackGrid(gridIndex, gridConnections, i, visited, path)) {
-                    path.Add(start);
-                    return true;
-                }
-            }
-        }
-
-        return false;
+        jsonObject = GetComponent<JSONReader>().ReadJSON();
     }
 
-    public void BacktrackGrid(List<Tile> grid, List<int> visited, int tileId)
+    public void BacktrackGrid(List<Tile> grid, List<int> visited, int tileId, int objectIndex)
     {
         Queue<int> queue = new Queue<int>();
         string path = "Path: ";
@@ -43,6 +25,8 @@ public class Backtracking : MonoBehaviour
             path += grid[tile].TileId + " - ";
             queue.Dequeue();
 
+            WaveFunctionCollapse(objectIndex, grid, grid[tile]);
+
             foreach(int neighbour in grid[tile].Neighbours) {
                 if(!visited.Contains(neighbour)) {
                     queue.Enqueue(neighbour);
@@ -52,17 +36,140 @@ public class Backtracking : MonoBehaviour
         }
         path += "[ " + visited.Count.ToString() + " ]";
 
-        print(path);
+        //print(path);
     }
 
-    private void ShowPath(List<int> path)
+    private void WaveFunctionCollapse(int objectIndex, List<Tile> grid, Tile clickedTile) // Tile neighbours order: [Top, Left, Right, Bottom]
     {
-        string printPath = "Path: ";
-
-        foreach(int i in path) {
-            printPath += i + ", ";
+        // Ignore empty tiles
+        if(clickedTile.ObjectIndex == 0) {
+            return;
         }
 
-        print(printPath);
+        List<int> neighboursObjectsIndexes = new List<int>();
+        bool validObject = true; // Send an error if there is NO valid object to place
+
+        // Check TOP neighbours
+        // Neighbours' values in JSON file
+        foreach(int n in jsonObject.ObjectPlaced[objectIndex].Neighbours.TopNeighbours) {
+            neighboursObjectsIndexes.Add(n);
+        }
+
+        //print(grid[clickedTile.Neighbours[0]].ObjectIndex);
+        // Neighbours' values in the grid
+        if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[0]].ObjectIndex)) {
+            // TODO: Si no lo contiene pasar al siguiente replacement y comprobar los neighbours index otra vez
+            validObject = false;
+        }
+
+        neighboursObjectsIndexes.Clear();
+
+        // Check LEFT neighbours
+        // Neighbours' values in JSON file
+        foreach(int n in jsonObject.ObjectPlaced[objectIndex].Neighbours.LeftNeighbours) {
+            neighboursObjectsIndexes.Add(n);
+        }
+
+        // Neighbours' values in the grid
+        if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[1]].ObjectIndex)) {
+            validObject = false;
+        }
+
+        neighboursObjectsIndexes.Clear();
+
+        // Check RIGHT neighbours
+        // Neighbours' values in JSON file
+        foreach(int n in jsonObject.ObjectPlaced[objectIndex].Neighbours.RightNeighbours) {
+            neighboursObjectsIndexes.Add(n);
+        }
+
+        // Neighbours' values in the grid
+        if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[2]].ObjectIndex)) {
+            validObject = false;
+        }
+
+        neighboursObjectsIndexes.Clear();
+
+        // Check BOTTOM neighbours
+        // Neighbours' values in JSON file
+        foreach(int n in jsonObject.ObjectPlaced[objectIndex].Neighbours.BottomNeighbours) {
+            neighboursObjectsIndexes.Add(n);
+        }
+
+        // Neighbours' values in the grid
+        if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[3]].ObjectIndex)) {
+            validObject = false;
+        }
+
+        neighboursObjectsIndexes.Clear();
+
+        if(!validObject) {
+            NextReplacement(jsonObject.ObjectPlaced[objectIndex], 0, grid, clickedTile);
+        }
+    }
+
+    private void NextReplacement(ObjectPlaced objectPlaced, int replacementIndex, List<Tile> grid, Tile checkingTile) // Tile neighbours order: [Top, Left, Right, Bottom]
+    {
+        List<int> neighboursObjectsIndexes = new List<int>();
+        bool validObject = true;
+
+        try {
+            Replacement replacement = objectPlaced.Replacements[replacementIndex];
+
+            // Check TOP neighbours
+            foreach(int n in replacement.Neighbours.TopNeighbours) {
+                neighboursObjectsIndexes.Add(n);
+            }
+
+            if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[0]].ObjectIndex)) {
+                validObject = false;
+            }
+
+            neighboursObjectsIndexes.Clear();
+
+            // Check LEFT neighbours
+            foreach(int n in replacement.Neighbours.LeftNeighbours) {
+                neighboursObjectsIndexes.Add(n);
+            }
+
+            if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[1]].ObjectIndex)) {
+                validObject = false;
+            }
+
+            neighboursObjectsIndexes.Clear();
+
+            // Check RIGHT neighbours
+            foreach(int n in replacement.Neighbours.RightNeighbours) {
+                neighboursObjectsIndexes.Add(n);
+            }
+
+            if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[2]].ObjectIndex)) {
+                validObject = false;
+            }
+
+            neighboursObjectsIndexes.Clear();
+
+            // Check BOTTOM neighbours
+            foreach(int n in replacement.Neighbours.BottomNeighbours) {
+                neighboursObjectsIndexes.Add(n);
+            }
+
+            if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[3]].ObjectIndex)) {
+                validObject = false;
+            }
+
+            neighboursObjectsIndexes.Clear();
+
+            if(!validObject) {
+                NextReplacement(objectPlaced, ++replacementIndex, grid, checkingTile);
+            }
+            else {
+                print("Replacement found!!");
+                checkingTile.ChangeObject();
+            }
+        }
+        catch(Exception e) {
+            Debug.LogError("There are no more valid replacements for object: " + objectPlaced.Name + " in tile: " + checkingTile.TileId);
+        }
     }
 }

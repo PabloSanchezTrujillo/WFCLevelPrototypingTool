@@ -1,37 +1,43 @@
 {
     "ObjectPlaced": [
         {
+            "Index": 0,
+            "Name": "Empty"
+        },
+
+        {
             "Index": 1,
             "Name": "Road_Straight",
             "Neighbours": {
-                "TopNeighbours": [1, 2, 3],
-                "LeftNeighbours": [3, 4, 5],
-                "RightNeighbours": [6, 7, 8],
-                "BottomNeighbours": [9, 10, 11]
+                "TopNeighbours": [0],
+                "LeftNeighbours": [0],
+                "RightNeighbours": [0],
+                "BottomNeighbours": [0]
             },
 
             "Replacements": [
                 {
-                    "Index": 23,
-                    "Name": "Road_Exit",
+                    "Index": 4,
+                    "Name": "Fake_Tile",
                     "Neighbours": {
-                        "TopNeighbours": [13, 21, 32],
-                        "LeftNeighbours": [34, 43, 55],
-                        "RightNeighbours": [65, 74, 82],
-                        "BottomNeighbours": [92, 104, 115]
+                        "TopNeighbours": [1],
+                        "LeftNeighbours": [1],
+                        "RightNeighbours": [0],
+                        "BottomNeighbours": [0]
                     }
                 },
 
                 {
-                    "Index": 52,
-                    "Name": "Road_Enter",
+                    "Index": 2,
+                    "Name": "Road_Corner",
                     "Neighbours": {
-                        "TopNeighbours": [17, 28, 38],
-                        "LeftNeighbours": [37, 45, 57],
-                        "RightNeighbours": [68, 78, 86],
-                        "BottomNeighbours": [96, 109, 112]
+                        "TopNeighbours": [0],
+                        "LeftNeighbours": [0],
+                        "RightNeighbours": [1],
+                        "BottomNeighbours": [1]
                     }
                 }
+                
             ]
         },
 
@@ -39,10 +45,21 @@
             "Index": 2,
             "Name": "Road_Corner",
             "Neighbours": {
-                "TopNeighbours": [1, 2, 3],
-                "LeftNeighbours": [3, 4, 5],
-                "RightNeighbours": [6, 7, 8],
-                "BottomNeighbours": [9, 10, 11]
+                "TopNeighbours": [0],
+                "LeftNeighbours": [0],
+                "RightNeighbours": [1],
+                "BottomNeighbours": [1]
+            }
+        },
+
+        {
+            "Index": 3,
+            "Name": "House",
+            "Neighbours": {
+                "TopNeighbours": [0],
+                "LeftNeighbours": [0],
+                "RightNeighbours": [0],
+                "BottomNeighbours": [0]
             }
         }
     ]      
