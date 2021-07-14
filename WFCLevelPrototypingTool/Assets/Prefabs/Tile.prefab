@@ -247,7 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ObjectToPlace>k__BackingField: {fileID: 4607866688880616659, guid: 3d910551b2586b2468240635dc014b52, type: 3}
   tile: {fileID: 6078225266304818113}
-  unoccupiedTile: {r: 0.7, g: 0.9, b: 0.5, a: 0}
+  unoccupiedTile: {r: 0.7, g: 0.9, b: 0.5, a: 1}
   occupiedTile: {r: 0.9, g: 0.4, b: 0.4, a: 1}
 --- !u!1 &3971443668076079275
 GameObject:
@@ -647,6 +647,7 @@ GameObject:
   - component: {fileID: 1801209191662112034}
   - component: {fileID: 8566635598233070014}
   - component: {fileID: 5714924040108818666}
+  - component: {fileID: 1959386218083771843}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -697,6 +698,23 @@ MonoBehaviour:
   <ObjectIndex>k__BackingField: 0
   <Neighbours>k__BackingField: 
   tileButton: {fileID: 5636629614037875567}
+--- !u!114 &1959386218083771843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078225266304818113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d2af4d8c9c50b4e9d9bad52ab36eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilesList:
+  - {fileID: 0}
+  - {fileID: 4607866688880616659, guid: 3d910551b2586b2468240635dc014b52, type: 3}
+  - {fileID: 2696730067276490333, guid: ff473caba9acf154ba602aa63e6bfa12, type: 3}
+  - {fileID: 4607866688880616659, guid: 3401bf80426fe9f46a7fdfd7f519d9d0, type: 3}
 --- !u!1 &6470339797146770021
 GameObject:
   m_ObjectHideFlags: 0

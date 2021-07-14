@@ -55,10 +55,8 @@ public class Backtracking : MonoBehaviour
             neighboursObjectsIndexes.Add(n);
         }
 
-        //print(grid[clickedTile.Neighbours[0]].ObjectIndex);
         // Neighbours' values in the grid
         if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[0]].ObjectIndex)) {
-            // TODO: Si no lo contiene pasar al siguiente replacement y comprobar los neighbours index otra vez
             validObject = false;
         }
 
@@ -164,12 +162,12 @@ public class Backtracking : MonoBehaviour
                 NextReplacement(objectPlaced, ++replacementIndex, grid, checkingTile);
             }
             else {
-                print("Replacement found!!");
-                checkingTile.ChangeObject();
+                print("Replacement found!! -> " + replacement.Index);
+                checkingTile.ChangeObject(replacement.Index);
             }
         }
-        catch(Exception e) {
-            Debug.LogError("There are no more valid replacements for object: " + objectPlaced.Name + " in tile: " + checkingTile.TileId);
+        catch {
+            Debug.LogError("There are no more valid replacements for object: '" + objectPlaced.Name + "' in tile: " + checkingTile.TileId);
         }
     }
 }

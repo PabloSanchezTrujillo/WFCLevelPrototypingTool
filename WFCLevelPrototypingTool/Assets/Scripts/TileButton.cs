@@ -13,12 +13,10 @@ public class TileButton : MonoBehaviour
 
     private Tile parentTile;
     private Button tileButton;
-    private bool occupied;
 
     private void Awake()
     {
         tileButton = GetComponent<Button>();
-        occupied = false;
     }
 
     private void Start()
@@ -28,13 +26,13 @@ public class TileButton : MonoBehaviour
 
     public void BuildOnTile()
     {
-        if(!occupied) {
+        if(!parentTile.Occupied) {
             // Instantiate the new object
             GameObject objectPlaced = Instantiate(ObjectToPlace, tile.transform, false);
             objectPlaced.transform.localPosition = Vector3.zero;
 
             // Mark the tile as occupied
-            occupied = true;
+            parentTile.Occupied = true;
 
             // Change the tile button's color
             ColorBlock buttonColors = tileButton.colors;
@@ -48,5 +46,35 @@ public class TileButton : MonoBehaviour
             // Backtrack the grid
             transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId, parentTile.ObjectIndex);
         }
+    }
+
+    public void BuildOnTile(GameObject objectToBuild)
+    {
+        if(!parentTile.Occupied) {
+            // Instantiate the new object
+            GameObject objectPlaced = Instantiate(objectToBuild, tile.transform, false);
+            objectPlaced.transform.localPosition = Vector3.zero;
+
+            // Mark the tile as occupied
+            parentTile.Occupied = true;
+
+            // Change the tile button's color
+            ColorBlock buttonColors = tileButton.colors;
+            buttonColors.highlightedColor = occupiedTile;
+            tileButton.colors = buttonColors;
+
+            // Change the tile's index to the new object index
+            BuildingObject buildingObject = objectToBuild.GetComponent<BuildingObject>();
+            parentTile.ObjectIndex = buildingObject.ObjectIndex;
+
+            transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId, parentTile.ObjectIndex);
+        }
+    }
+
+    public void ChangeButtonColor()
+    {
+        ColorBlock buttonColors = tileButton.colors;
+        buttonColors.highlightedColor = unoccupiedTile;
+        tileButton.colors = buttonColors;
     }
 }
