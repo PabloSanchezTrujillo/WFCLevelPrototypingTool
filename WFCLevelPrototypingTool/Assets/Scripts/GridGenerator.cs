@@ -70,31 +70,34 @@ public class GridGenerator : MonoBehaviour
 
         // Tile Id
         tile.TileId = id;
+        tile.Row = row;
+        tile.Col = col;
 
         // Tile neighbours
+        // Tile neighbours order: [Top, Left, Right, Bottom]
         if(row == 0 && col == 0) {
-            tile.Neighbours = new int[] { id + 1, id + cols };
+            tile.Neighbours = new int[] { -1, -1, id + 1, id + cols };
         }
         else if(row == 0 && col == cols - 1) {
-            tile.Neighbours = new int[] { id - 1, id + cols };
+            tile.Neighbours = new int[] { -1, id - 1, -1, id + cols };
         }
         else if(row == rows - 1 && col == 0) {
-            tile.Neighbours = new int[] { id - cols, id + 1 };
+            tile.Neighbours = new int[] { id - cols, -1, id + 1, -1 };
         }
         else if(row == rows - 1 && col == cols - 1) {
-            tile.Neighbours = new int[] { id - cols, id - 1 };
+            tile.Neighbours = new int[] { id - cols, id - 1, -1, -1 };
         }
         else if(row == 0) {
-            tile.Neighbours = new int[] { id - 1, id + 1, id + cols };
+            tile.Neighbours = new int[] { -1, id - 1, id + 1, id + cols };
         }
         else if(row == rows - 1) {
-            tile.Neighbours = new int[] { id - cols, id - 1, id + 1 };
+            tile.Neighbours = new int[] { id - cols, id - 1, id + 1, -1 };
         }
         else if(col == 0) {
-            tile.Neighbours = new int[] { id - cols, id + 1, id + cols };
+            tile.Neighbours = new int[] { id - cols, -1, id + 1, id + cols };
         }
         else if(col == cols - 1) {
-            tile.Neighbours = new int[] { id - cols, id - 1, id + cols };
+            tile.Neighbours = new int[] { id - cols, id - 1, -1, id + cols };
         }
         else {
             tile.Neighbours = new int[] { id - cols, id - 1, id + 1, id + cols };
@@ -104,5 +107,10 @@ public class GridGenerator : MonoBehaviour
     public void BacktrackGrid(int start, int objectIndex)
     {
         backtracking.BacktrackGrid(gridTile, new List<int>(), start, objectIndex);
+    }
+
+    public void LocalBacktrackingGrid(int start, int objectIndex)
+    {
+        backtracking.LocalBacktrackingGrid(gridTile, new List<int>(), start, objectIndex);
     }
 }

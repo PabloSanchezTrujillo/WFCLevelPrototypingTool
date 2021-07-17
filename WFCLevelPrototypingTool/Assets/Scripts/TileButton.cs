@@ -43,7 +43,7 @@ public class TileButton : MonoBehaviour
             BuildingObject buildingObject = ObjectToPlace.GetComponent<BuildingObject>();
             parentTile.ObjectIndex = buildingObject.ObjectIndex;
 
-            // Backtrack the grid
+            // Backtrack the whole grid
             transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId, parentTile.ObjectIndex);
         }
     }
@@ -67,7 +67,7 @@ public class TileButton : MonoBehaviour
             BuildingObject buildingObject = objectToBuild.GetComponent<BuildingObject>();
             parentTile.ObjectIndex = buildingObject.ObjectIndex;
 
-            transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId, parentTile.ObjectIndex);
+            //transform.parent.parent.GetComponentInParent<GridGenerator>().LocalBacktrackingGrid(parentTile.TileId, parentTile.ObjectIndex);
         }
     }
 

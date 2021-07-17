@@ -22,21 +22,46 @@ public class Backtracking : MonoBehaviour
 
         while(queue.Count != 0) {
             int tile = queue.Peek();
-            path += grid[tile].TileId + " - ";
             queue.Dequeue();
 
-            WaveFunctionCollapse(objectIndex, grid, grid[tile]);
+            if(tile != -1) {
+                path += grid[tile].TileId + " - ";
+                WaveFunctionCollapse(objectIndex, grid, grid[tile]);
 
-            foreach(int neighbour in grid[tile].Neighbours) {
-                if(!visited.Contains(neighbour)) {
-                    queue.Enqueue(neighbour);
-                    visited.Add(neighbour);
+                foreach(int neighbour in grid[tile].Neighbours) {
+                    if(!visited.Contains(neighbour)) {
+                        queue.Enqueue(neighbour);
+                        visited.Add(neighbour);
+                    }
                 }
             }
         }
         path += "[ " + visited.Count.ToString() + " ]";
 
         //print(path);
+    }
+
+    public void LocalBacktrackingGrid(List<Tile> grid, List<int> visited, int tileId, int objectIndex)
+    {
+        Queue<int> queue = new Queue<int>();
+        print("Local Backtracking Grid");
+
+        // Add the actual tile
+        queue.Enqueue(tileId);
+        visited.Add(tileId);
+
+        // Add the tile's neighbours
+        foreach(int neighbour in grid[tileId].Neighbours) {
+            queue.Enqueue(neighbour);
+            visited.Add(neighbour);
+        }
+
+        while(queue.Count != 0) {
+            int tile = queue.Peek();
+            queue.Dequeue();
+
+            WaveFunctionCollapse(objectIndex, grid, grid[tile]);
+        }
     }
 
     private void WaveFunctionCollapse(int objectIndex, List<Tile> grid, Tile clickedTile) // Tile neighbours order: [Top, Left, Right, Bottom]
@@ -56,8 +81,15 @@ public class Backtracking : MonoBehaviour
         }
 
         // Neighbours' values in the grid
-        if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[0]].ObjectIndex)) {
-            validObject = false;
+        if(clickedTile.Neighbours[0] == -1) {
+            if(!neighboursObjectsIndexes.Contains(0)) {
+                validObject = false;
+            }
+        }
+        else {
+            if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[0]].ObjectIndex)) {
+                validObject = false;
+            }
         }
 
         neighboursObjectsIndexes.Clear();
@@ -69,8 +101,15 @@ public class Backtracking : MonoBehaviour
         }
 
         // Neighbours' values in the grid
-        if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[1]].ObjectIndex)) {
-            validObject = false;
+        if(clickedTile.Neighbours[1] == -1) {
+            if(!neighboursObjectsIndexes.Contains(0)) {
+                validObject = false;
+            }
+        }
+        else {
+            if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[1]].ObjectIndex)) {
+                validObject = false;
+            }
         }
 
         neighboursObjectsIndexes.Clear();
@@ -82,8 +121,15 @@ public class Backtracking : MonoBehaviour
         }
 
         // Neighbours' values in the grid
-        if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[2]].ObjectIndex)) {
-            validObject = false;
+        if(clickedTile.Neighbours[2] == -1) {
+            if(!neighboursObjectsIndexes.Contains(0)) {
+                validObject = false;
+            }
+        }
+        else {
+            if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[2]].ObjectIndex)) {
+                validObject = false;
+            }
         }
 
         neighboursObjectsIndexes.Clear();
@@ -95,8 +141,15 @@ public class Backtracking : MonoBehaviour
         }
 
         // Neighbours' values in the grid
-        if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[3]].ObjectIndex)) {
-            validObject = false;
+        if(clickedTile.Neighbours[3] == -1) {
+            if(!neighboursObjectsIndexes.Contains(0)) {
+                validObject = false;
+            }
+        }
+        else {
+            if(!neighboursObjectsIndexes.Contains(grid[clickedTile.Neighbours[3]].ObjectIndex)) {
+                validObject = false;
+            }
         }
 
         neighboursObjectsIndexes.Clear();
@@ -119,8 +172,15 @@ public class Backtracking : MonoBehaviour
                 neighboursObjectsIndexes.Add(n);
             }
 
-            if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[0]].ObjectIndex)) {
-                validObject = false;
+            if(checkingTile.Neighbours[0] == -1) {
+                if(!neighboursObjectsIndexes.Contains(0)) {
+                    validObject = false;
+                }
+            }
+            else {
+                if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[0]].ObjectIndex)) {
+                    validObject = false;
+                }
             }
 
             neighboursObjectsIndexes.Clear();
@@ -130,8 +190,15 @@ public class Backtracking : MonoBehaviour
                 neighboursObjectsIndexes.Add(n);
             }
 
-            if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[1]].ObjectIndex)) {
-                validObject = false;
+            if(checkingTile.Neighbours[1] == -1) {
+                if(!neighboursObjectsIndexes.Contains(0)) {
+                    validObject = false;
+                }
+            }
+            else {
+                if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[1]].ObjectIndex)) {
+                    validObject = false;
+                }
             }
 
             neighboursObjectsIndexes.Clear();
@@ -141,8 +208,15 @@ public class Backtracking : MonoBehaviour
                 neighboursObjectsIndexes.Add(n);
             }
 
-            if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[2]].ObjectIndex)) {
-                validObject = false;
+            if(checkingTile.Neighbours[2] == -1) {
+                if(!neighboursObjectsIndexes.Contains(0)) {
+                    validObject = false;
+                }
+            }
+            else {
+                if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[2]].ObjectIndex)) {
+                    validObject = false;
+                }
             }
 
             neighboursObjectsIndexes.Clear();
@@ -152,8 +226,15 @@ public class Backtracking : MonoBehaviour
                 neighboursObjectsIndexes.Add(n);
             }
 
-            if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[3]].ObjectIndex)) {
-                validObject = false;
+            if(checkingTile.Neighbours[3] == -1) {
+                if(!neighboursObjectsIndexes.Contains(0)) {
+                    validObject = false;
+                }
+            }
+            else {
+                if(!neighboursObjectsIndexes.Contains(grid[checkingTile.Neighbours[3]].ObjectIndex)) {
+                    validObject = false;
+                }
             }
 
             neighboursObjectsIndexes.Clear();
@@ -162,7 +243,7 @@ public class Backtracking : MonoBehaviour
                 NextReplacement(objectPlaced, ++replacementIndex, grid, checkingTile);
             }
             else {
-                print("Replacement found!! -> " + replacement.Index);
+                print("Replacement found!! -> Replacement object: " + replacement.Name + " (" + replacement.Index + ")");
                 checkingTile.ChangeObject(replacement.Index);
             }
         }

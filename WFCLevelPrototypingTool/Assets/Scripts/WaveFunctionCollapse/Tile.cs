@@ -11,6 +11,8 @@ public class Tile : MonoBehaviour
     [field: SerializeField] public int[] Neighbours { get; set; }
 
     public bool Occupied { get; set; }
+    public int Row { get; set; }
+    public int Col { get; set; }
 
     [SerializeField] private TileButton tileButton;
 

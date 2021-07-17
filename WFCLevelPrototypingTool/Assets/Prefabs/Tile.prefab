@@ -696,7 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TileId>k__BackingField: 0
   <ObjectIndex>k__BackingField: 0
-  <Neighbours>k__BackingField: 
+  <Neighbours>k__BackingField: 00000000000000000000000000000000
   tileButton: {fileID: 5636629614037875567}
 --- !u!114 &1959386218083771843
 MonoBehaviour:
@@ -715,6 +715,9 @@ MonoBehaviour:
   - {fileID: 4607866688880616659, guid: 3d910551b2586b2468240635dc014b52, type: 3}
   - {fileID: 2696730067276490333, guid: ff473caba9acf154ba602aa63e6bfa12, type: 3}
   - {fileID: 4607866688880616659, guid: 3401bf80426fe9f46a7fdfd7f519d9d0, type: 3}
+  - {fileID: 2696730067276490333, guid: 6c798a43fb652d34da80075aaf6cad7a, type: 3}
+  - {fileID: 2696730067276490333, guid: 5a7e331a6a4381d458d2516d1103a07e, type: 3}
+  - {fileID: 2696730067276490333, guid: 63c9de1bde2a18e45ba483728502d77c, type: 3}
 --- !u!1 &6470339797146770021
 GameObject:
   m_ObjectHideFlags: 0
