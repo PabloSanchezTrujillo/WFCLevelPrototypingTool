@@ -429,7 +429,7 @@ MonoBehaviour:
         m_MethodName: SelectNewTile
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 6403097607426045216, guid: b5aa532e00e0cf348bde2ff51dac2a98, type: 3}
+          m_ObjectArgument: {fileID: 4190848911236761542, guid: 45096f0f30365f84697f4eb71b5e206a, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d72929c4e87abb14682a80ae4278be43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0a399c7cc95f65498e4670a9a437281, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -733,7 +733,7 @@ GameObject:
   - component: {fileID: 2042492715}
   - component: {fileID: 2042492714}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
