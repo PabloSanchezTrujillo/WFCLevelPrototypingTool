@@ -12,7 +12,7 @@ public class Backtracking : MonoBehaviour
         jsonObject = GetComponent<JSONReader>().ReadJSON();
     }
 
-    public void BacktrackGrid(List<Tile> grid, List<int> visited, int tileId, int objectIndex)
+    public void BacktrackGrid(List<Tile> grid, List<int> visited, int tileId)
     {
         Queue<int> queue = new Queue<int>();
         string path = "Path: ";
@@ -26,7 +26,7 @@ public class Backtracking : MonoBehaviour
 
             if(tile != -1) {
                 path += grid[tile].TileId + " - ";
-                WaveFunctionCollapse(objectIndex, grid, grid[tile]);
+                WaveFunctionCollapse(grid, grid[tile]);
 
                 foreach(int neighbour in grid[tile].Neighbours) {
                     if(!visited.Contains(neighbour)) {
@@ -41,7 +41,7 @@ public class Backtracking : MonoBehaviour
         //print(path);
     }
 
-    public void LocalBacktrackingGrid(List<Tile> grid, List<int> visited, int tileId, int objectIndex)
+    public void LocalBacktrackingGrid(List<Tile> grid, List<int> visited, int tileId)
     {
         Queue<int> queue = new Queue<int>();
         print("Local Backtracking Grid");
@@ -60,11 +60,11 @@ public class Backtracking : MonoBehaviour
             int tile = queue.Peek();
             queue.Dequeue();
 
-            WaveFunctionCollapse(objectIndex, grid, grid[tile]);
+            WaveFunctionCollapse(grid, grid[tile]);
         }
     }
 
-    private void WaveFunctionCollapse(int objectIndex, List<Tile> grid, Tile clickedTile) // Tile neighbours order: [Top, Left, Right, Bottom]
+    private void WaveFunctionCollapse(List<Tile> grid, Tile clickedTile) // Tile neighbours order: [Top, Left, Right, Bottom]
     {
         // Ignore empty tiles
         if(clickedTile.ObjectIndex == 0) {
@@ -76,7 +76,7 @@ public class Backtracking : MonoBehaviour
 
         // Check TOP neighbours
         // Neighbours' values in JSON file
-        foreach(int n in jsonObject.ObjectPlaced[objectIndex].Neighbours.TopNeighbours) {
+        foreach(int n in jsonObject.ObjectPlaced[clickedTile.ObjectIndex].Neighbours.TopNeighbours) {
             neighboursObjectsIndexes.Add(n);
         }
 
@@ -96,7 +96,7 @@ public class Backtracking : MonoBehaviour
 
         // Check LEFT neighbours
         // Neighbours' values in JSON file
-        foreach(int n in jsonObject.ObjectPlaced[objectIndex].Neighbours.LeftNeighbours) {
+        foreach(int n in jsonObject.ObjectPlaced[clickedTile.ObjectIndex].Neighbours.LeftNeighbours) {
             neighboursObjectsIndexes.Add(n);
         }
 
@@ -116,7 +116,7 @@ public class Backtracking : MonoBehaviour
 
         // Check RIGHT neighbours
         // Neighbours' values in JSON file
-        foreach(int n in jsonObject.ObjectPlaced[objectIndex].Neighbours.RightNeighbours) {
+        foreach(int n in jsonObject.ObjectPlaced[clickedTile.ObjectIndex].Neighbours.RightNeighbours) {
             neighboursObjectsIndexes.Add(n);
         }
 
@@ -136,7 +136,7 @@ public class Backtracking : MonoBehaviour
 
         // Check BOTTOM neighbours
         // Neighbours' values in JSON file
-        foreach(int n in jsonObject.ObjectPlaced[objectIndex].Neighbours.BottomNeighbours) {
+        foreach(int n in jsonObject.ObjectPlaced[clickedTile.ObjectIndex].Neighbours.BottomNeighbours) {
             neighboursObjectsIndexes.Add(n);
         }
 
@@ -155,7 +155,7 @@ public class Backtracking : MonoBehaviour
         neighboursObjectsIndexes.Clear();
 
         if(!validObject) {
-            NextReplacement(jsonObject.ObjectPlaced[objectIndex], 0, grid, clickedTile);
+            NextReplacement(jsonObject.ObjectPlaced[clickedTile.ObjectIndex], 0, grid, clickedTile);
         }
     }
 

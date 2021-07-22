@@ -104,13 +104,13 @@ public class GridGenerator : MonoBehaviour
         }
     }
 
-    public void BacktrackGrid(int start, int objectIndex)
+    public void BacktrackGrid(int start)
     {
-        backtracking.BacktrackGrid(gridTile, new List<int>(), start, objectIndex);
+        backtracking.BacktrackGrid(gridTile, new List<int>(), start);
     }
 
-    public void LocalBacktrackingGrid(int start, int objectIndex)
+    public void LocalBacktrackingGrid(int start)
     {
-        backtracking.LocalBacktrackingGrid(gridTile, new List<int>(), start, objectIndex);
+        backtracking.LocalBacktrackingGrid(gridTile, new List<int>(), start);
     }
 }

@@ -9,9 +9,9 @@
             "Index": 1,
             "Name": "Road_Straight vertical",
             "Neighbours": {
-                "TopNeighbours": [0,1,2],
-                "LeftNeighbours": [0],
-                "RightNeighbours": [0],
+                "TopNeighbours": [0,1,2,13],
+                "LeftNeighbours": [0,15],
+                "RightNeighbours": [0,15],
                 "BottomNeighbours": [0,1]
             },
 
@@ -20,10 +20,10 @@
                     "Index": 2,
                     "Name": "Road_Turn bottom-right",
                     "Neighbours": {
-                        "TopNeighbours": [0],
-                        "LeftNeighbours": [0],
-                        "RightNeighbours": [1,3,5],
-                        "BottomNeighbours": [1,5]
+                        "TopNeighbours": [0,7],
+                        "LeftNeighbours": [0,10],
+                        "RightNeighbours": [1,3,5,14],
+                        "BottomNeighbours": [1,5,11]
                     }
                 },
 
@@ -31,10 +31,10 @@
                     "Index": 3,
                     "Name": "Road_Straight horizontal",
                     "Neighbours": {
-                        "TopNeighbours": [0,7],
-                        "LeftNeighbours": [0,1,2,3,6],
-                        "RightNeighbours": [0,1,3,4,5],
-                        "BottomNeighbours": [0]
+                        "TopNeighbours": [0,7,15],
+                        "LeftNeighbours": [0,1,2,3,6,11,12],
+                        "RightNeighbours": [0,1,3,4,5,14],
+                        "BottomNeighbours": [0,7,8,15]
                     }
                 },
                 
@@ -42,21 +42,21 @@
                     "Index": 4,
                     "Name":"Road_Turn right-bottom",
                     "Neighbours": {
-                        "TopNeighbours": [0],
+                        "TopNeighbours": [0,7],
                         "LeftNeighbours": [1,3,6],
-                        "RightNeighbours": [0,1],
-                        "BottomNeighbours": [1,6]
+                        "RightNeighbours": [0,1,9],
+                        "BottomNeighbours": [1,6,11]
                     }
                 },
 
                 {
                     "Index": 5,
-                    "Name":"Road_Turn top-lef",
+                    "Name":"Road_Turn top-left",
                     "Neighbours": {
-                        "TopNeighbours": [1,2],
+                        "TopNeighbours": [1,2,13],
                         "LeftNeighbours": [1,2,3],
-                        "RightNeighbours": [0,1,2],
-                        "BottomNeighbours": [0,3]
+                        "RightNeighbours": [0,1,2,9],
+                        "BottomNeighbours": [0,3,7,8]
                     }
                 },
 
@@ -64,10 +64,32 @@
                     "Index": 6,
                     "Name":"Road_Turn right-top",
                     "Neighbours": {
-                        "TopNeighbours": [1,4],
-                        "LeftNeighbours": [0,1],
-                        "RightNeighbours": [1,2,3,4],
-                        "BottomNeighbours": [0,3]
+                        "TopNeighbours": [1,4,13],
+                        "LeftNeighbours": [0,1,10],
+                        "RightNeighbours": [1,2,3,4,14],
+                        "BottomNeighbours": [0,3,8]
+                    }
+                },
+
+                {
+                    "Index": 13,
+                    "Name": "Circuit_Start grid vertical",
+                    "Neighbours": {
+                        "TopNeighbours": [11],
+                        "LeftNeighbours": [0,1,10],
+                        "RightNeighbours": [0,1,9],
+                        "BottomNeighbours": [0,1,5,6]
+                    }
+                },
+
+                {
+                    "Index": 14,
+                    "Name": "Circuit_Start grid horizontal",
+                    "Neighbours": {
+                        "TopNeighbours": [0,3,7],
+                        "LeftNeighbours": [0,1,2,3,6],
+                        "RightNeighbours": [12,13],
+                        "BottomNeighbours": [0,3,8]
                     }
                 }
             ]
@@ -80,7 +102,59 @@
 
         {
             "Index": 3,
-            "Name": "Road_Straight horizontal"
+            "Name": "Road_Straight horizontal",
+            "Neighbours": {
+                "TopNeighbours": [0,7,15],
+                "LeftNeighbours": [0,1,2,3,6,11,12],
+                "RightNeighbours": [0,1,3,4,5],
+                "BottomNeighbours": [0,7,8,15]
+            },
+
+            "Replacements": [
+                {
+                    "Index": 2,
+                    "Name": "Road_Turn bottom-right",
+                    "Neighbours": {
+                        "TopNeighbours": [0,3,7],
+                        "LeftNeighbours": [0,1,10],
+                        "RightNeighbours": [3,14],
+                        "BottomNeighbours": [0,1]
+                    }
+                },
+
+                {
+                    "Index": 4,
+                    "Name": "Road_Turn right-bottom",
+                    "Neighbours": {
+                        "TopNeighbours": [0,3,7],
+                        "LeftNeighbours": [3,12],
+                        "RightNeighbours": [0,1,9],
+                        "BottomNeighbours": [1]
+                    }
+                },
+
+                {
+                    "Index": 5,
+                    "Name": "Road_Turn top-left",
+                    "Neighbours": {
+                        "TopNeighbours": [1],
+                        "LeftNeighbours": [3,12],
+                        "RightNeighbours": [0,1,9],
+                        "BottomNeighbours": [0,3,8]
+                    }
+                },
+
+                {
+                    "Index": 6,
+                    "Name": "Road_Turn right-top",
+                    "Neighbours": {
+                        "TopNeighbours": [1],
+                        "LeftNeighbours": [0,1,10],
+                        "RightNeighbours": [3,14],
+                        "BottomNeighbours": [0,3,8]
+                    }
+                }
+            ]
         },
 
         {
@@ -90,7 +164,7 @@
 
         {
             "Index": 5,
-            "Name": "Road_Turn top-lef"
+            "Name": "Road_Turn top-left"
         },
 
         {
@@ -113,9 +187,9 @@
                     "Index": 8,
                     "Name": "Grand_Stand top-look",
                     "Neighbours": {
-                        "TopNeighbours": [3,5,6],
-                        "LeftNeighbours": [0,1,8],
-                        "RightNeighbours": [0,1,8],
+                        "TopNeighbours": [1,3,5,6],
+                        "LeftNeighbours": [0,1,7,8],
+                        "RightNeighbours": [0,1,7,8],
                         "BottomNeighbours": [0,3,9,10]
                     }
                 },
@@ -125,7 +199,7 @@
                     "Name": "Grand_Stand left-look",
                     "Neighbours": {
                         "TopNeighbours": [0,7,8,9],
-                        "LeftNeighbours": [1,4,5],
+                        "LeftNeighbours": [1,4,5,11],
                         "RightNeighbours": [0],
                         "BottomNeighbours": [0,7,9]
                     }
@@ -137,7 +211,7 @@
                     "Neighbours": {
                         "TopNeighbours": [0,7,8,10],
                         "LeftNeighbours": [0],
-                        "RightNeighbours": [1,2,6],
+                        "RightNeighbours": [1,2,6,11],
                         "BottomNeighbours": [0,7,10]
                     }
                 }
@@ -157,6 +231,186 @@
         {
             "Index": 10,
             "Name": "Grand_Stand right-look"
+        },
+
+        {
+            "Index": 11,
+            "Name": "Circuit_Start vertical",
+            "Neighbours": {
+                "TopNeighbours": [1],
+                "LeftNeighbours": [0,10],
+                "RightNeighbours": [0,9],
+                "BottomNeighbours": [1,12]
+            },
+
+            "Replacements": [
+                {
+                    "Index": 12,
+                    "Name": "Circuit_Start horizontal",
+                    "Neighbours": {
+                        "TopNeighbours": [0],
+                        "LeftNeighbours": [0,1,3,14],
+                        "RightNeighbours": [1,3],
+                        "BottomNeighbours": [0]
+                    }
+                }
+            ]
+        },
+
+        {
+            "Index": 12,
+            "Name": "Circuit_Start horizontal"
+        },
+
+        {
+            "Index": 13,
+            "Name": "Circuit_Start grid vertical"
+        },
+
+        {
+            "Index": 14,
+            "Name": "Circuit_Start grid horizontal"
+        },
+
+        {
+            "Index": 15,
+            "Name": "Grass",
+            "Neighbours": {
+                "TopNeighbours": [0,1,3],
+                "LeftNeighbours": [0,3],
+                "RightNeighbours": [0,3],
+                "BottomNeighbours": [0,1,3]
+            },
+
+            "Replacements": [
+                {
+                    "Index": 16,
+                    "Name":"Grass with three flags left",
+                    "Neighbours": {
+                        "TopNeighbours": [0,16,17,18],
+                        "LeftNeighbours": [0,1],
+                        "RightNeighbours": [0,16,17,18],
+                        "BottomNeighbours": [0,1,16,17,22]
+                    }
+                },
+
+                {
+                    "Index": 17,
+                    "Name": "Grass with cameras bottom",
+                    "Neighbours": {
+                        "TopNeighbours": [0,15],
+                        "LeftNeighbours": [0,15,22],
+                        "RightNeighbours": [0,15,20,21],
+                        "BottomNeighbours": [3]
+                    }
+                },
+
+                {
+                    "Index": 19,
+                    "Name": "Grass with three flags right",
+                    "Neighbours": {
+                        "TopNeighbours": [0,19,17,20],
+                        "LeftNeighbours": [0,1,19,17,18],
+                        "RightNeighbours": [0,1],
+                        "BottomNeighbours": [0,19,17,21]
+                    }
+                },
+
+                {
+                    "Index": 18,
+                    "Name": "Grass with lightposts top-left corner",
+                    "Neighbours": {
+                        "TopNeighbours": [3],
+                        "LeftNeighbours": [1],
+                        "RightNeighbours": [0,15,17],
+                        "BottomNeighbours": [0,15,17]
+                    }
+                },
+
+                {
+                    "Index": 20,
+                    "Name": "Grass with lightposts top-right corner",
+                    "Neighbours": {
+                        "TopNeighbours": [3],
+                        "LeftNeighbours": [0,15,17],
+                        "RightNeighbours": [1],
+                        "BottomNeighbours": [0,15,17]
+                    }
+                },
+
+                {
+                    "Index": 21,
+                    "Name": "Grass with lightposts bottom-right corner",
+                    "Neighbours": {
+                        "TopNeighbours": [0,15,17],
+                        "LeftNeighbours": [0,15,17],
+                        "RightNeighbours": [1],
+                        "BottomNeighbours": [3]
+                    }
+                },
+
+                {
+                    "Index": 22,
+                    "Name": "Grass with lightposts bottom-left corner",
+                    "Neighbours": {
+                        "TopNeighbours": [0,15,17],
+                        "LeftNeighbours": [1],
+                        "RightNeighbours": [0,15,17],
+                        "BottomNeighbours": [3]
+                    }
+                },
+
+                {
+                    "Index": 23,
+                    "Name": "Grass with cameras top",
+                    "Neighbours": {
+                        "TopNeighbours": [3],
+                        "LeftNeighbours": [0,15,18],
+                        "RightNeighbours": [0,15,20],
+                        "BottomNeighbours": [0,15]
+                    }
+                }
+            ]
+        },
+
+        {
+            "Index": 16,
+            "Name": "Grass with three flags left"
+        },
+
+        {
+            "Index": 17,
+            "Name": "Grass with cameras bottom"
+        },
+        
+        {
+            "Index": 18,
+            "Name": "Grass with lightposts top-left corner"
+        },
+
+        {
+            "Index": 19,
+            "Name": "Grass with three flags right"
+        },
+
+        {
+            "Index": 20,
+            "Name": "Grass with lightposts top-right corner"
+        },
+
+        {
+            "Index": 21,
+            "Name": "Grass with lightposts bottom-right corner"
+        },
+
+        {
+            "Index": 22,
+            "Name": "Grass with lightposts bottom-left corner"
+        },
+
+        {
+            "Index": 23,
+            "Name": "Grass with cameras top"
         }
     ]      
 }

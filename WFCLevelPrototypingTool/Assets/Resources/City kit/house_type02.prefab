@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6023441312457961370}
   - component: {fileID: 7221614776138801215}
   - component: {fileID: 4889962693624583413}
-  - component: {fileID: 7103002804922646196}
   m_Layer: 0
   m_Name: house_type02
   m_TagString: Untagged
@@ -86,16 +85,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7103002804922646196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6403097607426045216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90dfc2acb97ae2f4cbe4d2e43fc0a7d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ObjectIndex>k__BackingField: 10
