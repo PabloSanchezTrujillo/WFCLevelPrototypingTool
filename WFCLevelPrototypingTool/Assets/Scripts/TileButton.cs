@@ -71,7 +71,7 @@ public class TileButton : MonoBehaviour
         }
     }
 
-    public void ChangeButtonColor()
+    public void ChangeButtonColorToUnoccupied()
     {
         ColorBlock buttonColors = tileButton.colors;
         buttonColors.highlightedColor = unoccupiedTile;

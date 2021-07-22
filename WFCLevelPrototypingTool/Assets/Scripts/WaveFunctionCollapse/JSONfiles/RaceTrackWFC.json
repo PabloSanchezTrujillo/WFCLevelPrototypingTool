@@ -23,7 +23,7 @@
                         "TopNeighbours": [0,7],
                         "LeftNeighbours": [0,10],
                         "RightNeighbours": [1,3,5,14],
-                        "BottomNeighbours": [1,5,11]
+                        "BottomNeighbours": [1,3,5,11]
                     }
                 },
 
@@ -66,7 +66,7 @@
                     "Neighbours": {
                         "TopNeighbours": [1,4,13],
                         "LeftNeighbours": [0,1,10],
-                        "RightNeighbours": [1,2,3,4,14],
+                        "RightNeighbours": [1,2,3,4,12,14],
                         "BottomNeighbours": [0,3,8]
                     }
                 },
@@ -117,7 +117,7 @@
                     "Neighbours": {
                         "TopNeighbours": [0,3,7],
                         "LeftNeighbours": [0,1,10],
-                        "RightNeighbours": [3,14],
+                        "RightNeighbours": [3,5,14],
                         "BottomNeighbours": [0,1]
                     }
                 },
@@ -127,7 +127,7 @@
                     "Name": "Road_Turn right-bottom",
                     "Neighbours": {
                         "TopNeighbours": [0,3,7],
-                        "LeftNeighbours": [3,12],
+                        "LeftNeighbours": [3,6,12],
                         "RightNeighbours": [0,1,9],
                         "BottomNeighbours": [1]
                     }
@@ -137,8 +137,8 @@
                     "Index": 5,
                     "Name": "Road_Turn top-left",
                     "Neighbours": {
-                        "TopNeighbours": [1],
-                        "LeftNeighbours": [3,12],
+                        "TopNeighbours": [1,2,4],
+                        "LeftNeighbours": [3,2,12],
                         "RightNeighbours": [0,1,9],
                         "BottomNeighbours": [0,3,8]
                     }
@@ -150,7 +150,7 @@
                     "Neighbours": {
                         "TopNeighbours": [1],
                         "LeftNeighbours": [0,1,10],
-                        "RightNeighbours": [3,14],
+                        "RightNeighbours": [3,4,14],
                         "BottomNeighbours": [0,3,8]
                     }
                 }
@@ -176,10 +176,10 @@
             "Index": 7,
             "Name": "Grand_Stand bottom-look",
             "Neighbours": {
-                "TopNeighbours": [0],
-                "LeftNeighbours": [0,7],
-                "RightNeighbours": [0,7],
-                "BottomNeighbours": [0,1,2,3,4]
+                "TopNeighbours": [0,8,9,10,15],
+                "LeftNeighbours": [0,7,15,17,22],
+                "RightNeighbours": [0,7,15,17,21],
+                "BottomNeighbours": [0,1,2,3,4,12,14]
             },
 
             "Replacements": [
@@ -187,10 +187,10 @@
                     "Index": 8,
                     "Name": "Grand_Stand top-look",
                     "Neighbours": {
-                        "TopNeighbours": [1,3,5,6],
-                        "LeftNeighbours": [0,1,7,8],
-                        "RightNeighbours": [0,1,7,8],
-                        "BottomNeighbours": [0,3,9,10]
+                        "TopNeighbours": [1,3,5,6,12,14],
+                        "LeftNeighbours": [0,1,5,7,8,15,18,23],
+                        "RightNeighbours": [0,1,6,7,8,11,15,20,23],
+                        "BottomNeighbours": [0,3,7,9,10,15]
                     }
                 },
 
@@ -198,10 +198,10 @@
                     "Index": 9,
                     "Name": "Grand_Stand left-look",
                     "Neighbours": {
-                        "TopNeighbours": [0,7,8,9],
-                        "LeftNeighbours": [1,4,5,11],
-                        "RightNeighbours": [0],
-                        "BottomNeighbours": [0,7,9]
+                        "TopNeighbours": [0,5,7,8,9,15,16,18],
+                        "LeftNeighbours": [1,4,5,11,13],
+                        "RightNeighbours": [0,1,15],
+                        "BottomNeighbours": [0,4,7,9,15,16,22]
                     }
                 },
 
@@ -209,10 +209,10 @@
                     "Index": 10,
                     "Name": "Grand_Stand right-look",
                     "Neighbours": {
-                        "TopNeighbours": [0,7,8,10],
-                        "LeftNeighbours": [0],
-                        "RightNeighbours": [1,2,6,11],
-                        "BottomNeighbours": [0,7,10]
+                        "TopNeighbours": [0,6,7,8,10,15,20],
+                        "LeftNeighbours": [0,1,9,15,18],
+                        "RightNeighbours": [1,2,6,11,13,19],
+                        "BottomNeighbours": [0,2,7,10,15,22]
                     }
                 }
             ]
@@ -276,10 +276,10 @@
             "Index": 15,
             "Name": "Grass",
             "Neighbours": {
-                "TopNeighbours": [0,1,3],
-                "LeftNeighbours": [0,3],
-                "RightNeighbours": [0,3],
-                "BottomNeighbours": [0,1,3]
+                "TopNeighbours": [0,1,3,19,23],
+                "LeftNeighbours": [0,3,16,17,19,23],
+                "RightNeighbours": [0,3,17,19,23],
+                "BottomNeighbours": [0,1,3,17,19]
             },
 
             "Replacements": [
@@ -299,8 +299,8 @@
                     "Name": "Grass with cameras bottom",
                     "Neighbours": {
                         "TopNeighbours": [0,15],
-                        "LeftNeighbours": [0,15,22],
-                        "RightNeighbours": [0,15,20,21],
+                        "LeftNeighbours": [0,4,15,22],
+                        "RightNeighbours": [0,2,15,20,21],
                         "BottomNeighbours": [3]
                     }
                 },
@@ -320,8 +320,8 @@
                     "Index": 18,
                     "Name": "Grass with lightposts top-left corner",
                     "Neighbours": {
-                        "TopNeighbours": [3],
-                        "LeftNeighbours": [1],
+                        "TopNeighbours": [3,5,12,14],
+                        "LeftNeighbours": [1,5,11],
                         "RightNeighbours": [0,15,17],
                         "BottomNeighbours": [0,15,17]
                     }
@@ -331,10 +331,10 @@
                     "Index": 20,
                     "Name": "Grass with lightposts top-right corner",
                     "Neighbours": {
-                        "TopNeighbours": [3],
+                        "TopNeighbours": [3,12],
                         "LeftNeighbours": [0,15,17],
                         "RightNeighbours": [1],
-                        "BottomNeighbours": [0,15,17]
+                        "BottomNeighbours": [0,2,3,15,17]
                     }
                 },
 
@@ -345,7 +345,7 @@
                         "TopNeighbours": [0,15,17],
                         "LeftNeighbours": [0,15,17],
                         "RightNeighbours": [1],
-                        "BottomNeighbours": [3]
+                        "BottomNeighbours": [3,2]
                     }
                 },
 
@@ -354,7 +354,7 @@
                     "Name": "Grass with lightposts bottom-left corner",
                     "Neighbours": {
                         "TopNeighbours": [0,15,17],
-                        "LeftNeighbours": [1],
+                        "LeftNeighbours": [1,4,13],
                         "RightNeighbours": [0,15,17],
                         "BottomNeighbours": [3]
                     }
