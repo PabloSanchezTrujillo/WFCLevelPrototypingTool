@@ -243,7 +243,7 @@ public class Backtracking : MonoBehaviour
                 NextReplacement(objectPlaced, ++replacementIndex, grid, checkingTile);
             }
             else {
-                print("Replacement found!! -> Replacement object: " + replacement.Name + " (" + replacement.Index + ")");
+                print("Replacement found! -> Replacement object: " + replacement.Name + " (" + replacement.Index + ")");
                 checkingTile.ChangeObject(replacement.Index);
             }
         }

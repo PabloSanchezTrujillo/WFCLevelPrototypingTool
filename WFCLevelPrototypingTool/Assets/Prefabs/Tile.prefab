@@ -711,7 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilesList:
-  - {fileID: 0}
+  - {fileID: 6694397052004060507, guid: d07bb4e2d44099849a113dbe7f65f770, type: 3}
   - {fileID: 4607866688880616659, guid: 3d910551b2586b2468240635dc014b52, type: 3}
   - {fileID: 2696730067276490333, guid: ff473caba9acf154ba602aa63e6bfa12, type: 3}
   - {fileID: 4607866688880616659, guid: 3401bf80426fe9f46a7fdfd7f519d9d0, type: 3}

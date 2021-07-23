@@ -31,13 +31,18 @@ public class Tile : MonoBehaviour
         tileButton.ObjectToPlace = selectedTile;
     }
 
-    // TODO: El objeto tiene que cambiar ANTES de continuar con el backtracking
     public void ChangeObject(int objectIndex)
     {
         //print(transform.GetChild(5).name);
         Occupied = false;
         Destroy(transform.GetChild(5).gameObject);
         tileButton.BuildOnTile(tilesList[objectIndex]);
-        //tileButton.ChangeButtonColor();
+    }
+
+    public void DeleteObject()
+    {
+        Occupied = false;
+        Destroy(transform.GetChild(5).gameObject);
+        tileButton.ChangeButtonColorToUnoccupied();
     }
 }

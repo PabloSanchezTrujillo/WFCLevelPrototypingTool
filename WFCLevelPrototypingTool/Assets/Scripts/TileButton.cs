@@ -26,26 +26,32 @@ public class TileButton : MonoBehaviour
 
     public void BuildOnTile()
     {
-        if(!parentTile.Occupied) {
-            // Instantiate the new object
-            GameObject objectPlaced = Instantiate(ObjectToPlace, tile.transform, false);
-            objectPlaced.transform.localPosition = Vector3.zero;
-
-            // Mark the tile as occupied
-            parentTile.Occupied = true;
-
-            // Change the tile button's color
-            ColorBlock buttonColors = tileButton.colors;
-            buttonColors.highlightedColor = occupiedTile;
-            tileButton.colors = buttonColors;
-
-            // Change the tile's index to the new object index
-            BuildingObject buildingObject = ObjectToPlace.GetComponent<BuildingObject>();
-            parentTile.ObjectIndex = buildingObject.ObjectIndex;
-
-            // Backtrack the whole grid
-            transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId);
+        if(ObjectToPlace == null) { // Clear the tile
+            parentTile.DeleteObject();
+            parentTile.ObjectIndex = 0;
         }
+        else { // Build on the tile
+            if(!parentTile.Occupied) {
+                // Instantiate the new object
+                GameObject objectPlaced = Instantiate(ObjectToPlace, tile.transform, false);
+                objectPlaced.transform.localPosition = Vector3.zero;
+
+                // Mark the tile as occupied
+                parentTile.Occupied = true;
+
+                // Change the tile button's color
+                ColorBlock buttonColors = tileButton.colors;
+                buttonColors.highlightedColor = occupiedTile;
+                tileButton.colors = buttonColors;
+
+                // Change the tile's index to the new object index
+                BuildingObject buildingObject = ObjectToPlace.GetComponent<BuildingObject>();
+                parentTile.ObjectIndex = buildingObject.ObjectIndex;
+            }
+        }
+
+        // Backtrack the whole grid
+        transform.parent.parent.GetComponentInParent<GridGenerator>().BacktrackGrid(parentTile.TileId);
     }
 
     public void BuildOnTile(GameObject objectToBuild)
