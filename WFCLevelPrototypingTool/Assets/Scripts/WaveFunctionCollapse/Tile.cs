@@ -42,6 +42,7 @@ public class Tile : MonoBehaviour
     public void DeleteObject()
     {
         Occupied = false;
+        ObjectIndex = 0;
         Destroy(transform.GetChild(5).gameObject);
         tileButton.ChangeButtonColorToUnoccupied();
     }
