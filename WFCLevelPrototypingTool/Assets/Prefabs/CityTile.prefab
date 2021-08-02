@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a96e3298da3f214cb590b4bb672aa2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ObjectToPlace>k__BackingField: {fileID: 4607866688880616659, guid: 3d910551b2586b2468240635dc014b52, type: 3}
+  <ObjectToPlace>k__BackingField: {fileID: 4103737908092793396, guid: c835850d38488484b9bef579779987a8, type: 3}
   tile: {fileID: 6078225266304818113}
   unoccupiedTile: {r: 0.7, g: 0.9, b: 0.5, a: 1}
   occupiedTile: {r: 0.9, g: 0.4, b: 0.4, a: 1}
@@ -717,6 +717,9 @@ MonoBehaviour:
   - {fileID: 4103737908092793396, guid: 0f0fe11d32c0b6a4eb19a5bf57bb3975, type: 3}
   - {fileID: 5549851855305327922, guid: 6e2fb4c167b858a48ad07284f069e246, type: 3}
   - {fileID: 1982192420415933102, guid: e05b31656011d6d44b732394d86d36ac, type: 3}
+  - {fileID: 5549851855305327922, guid: 5123fc00fd79b6b42ace4ecad1d50476, type: 3}
+  - {fileID: 5549851855305327922, guid: 38b3135d4d7f2c047aa4093eff44df7e, type: 3}
+  - {fileID: 3871317950455631198, guid: 385f9e37e35acdf41a73363482ab7430, type: 3}
 --- !u!1 &6470339797146770021
 GameObject:
   m_ObjectHideFlags: 0
