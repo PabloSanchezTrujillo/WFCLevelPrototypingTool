@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/MainMenu.unity
+    guid: c1199cf71cff4a640b6abc049c488692
+  - enabled: 1
     path: Assets/_Scenes/RacetrackLevels.unity
     guid: 13241b027046c8240ae5857cfee3891c
+  - enabled: 1
+    path: Assets/_Scenes/CityLevels.unity
+    guid: a3f8640e3c9fa02439098b6e49655a43
   m_configObjects: {}

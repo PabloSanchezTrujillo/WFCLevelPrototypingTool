@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridGenerator : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class GridGenerator : MonoBehaviour
     [SerializeField] private int cols;
     [SerializeField] private float tileSize;
     [SerializeField] private GameObject tile;
+    [SerializeField] private GameObject gridOptionsMenu;
+    [SerializeField] private Text inputRows;
+    [SerializeField] private Text inputCols;
 
     private Backtracking backtracking;
     private List<Tile> gridTile;
@@ -22,9 +26,24 @@ public class GridGenerator : MonoBehaviour
         gridConnections = new List<int[]>();
     }
 
-    // Start is called before the first frame update
-    private void Start()
+    public void GenerateButton()
     {
+        try {
+            rows = int.Parse(inputRows.text);
+            cols = int.Parse(inputCols.text);
+
+            if(rows <= 0) {
+                rows = 6;
+            }
+            if(cols <= 0) {
+                cols = 6;
+            }
+        }
+        catch {
+            print("Invalid input");
+        }
+        gridOptionsMenu.SetActive(false);
+
         GenerateGrid();
     }
 

@@ -10,13 +10,18 @@ public class TileButton : MonoBehaviour
     [SerializeField] private GameObject tile;
     [SerializeField] private Color unoccupiedTile;
     [SerializeField] private Color occupiedTile;
+    [SerializeField] private AudioClip buildOnTile;
+    [SerializeField] private AudioClip clearTile;
+    [SerializeField] private GameObject buildingParticles;
 
     private Tile parentTile;
     private Button tileButton;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         tileButton = GetComponent<Button>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -27,6 +32,10 @@ public class TileButton : MonoBehaviour
     public void BuildOnTile()
     {
         if(ObjectToPlace == null) { // Clear the tile
+            audioSource.volume = 0.7f;
+            audioSource.clip = clearTile;
+            audioSource.Play();
+
             parentTile.DeleteObject();
             parentTile.ObjectIndex = 0;
         }
@@ -43,6 +52,14 @@ public class TileButton : MonoBehaviour
                 ColorBlock buttonColors = tileButton.colors;
                 buttonColors.highlightedColor = occupiedTile;
                 tileButton.colors = buttonColors;
+
+                // Play the sound
+                audioSource.volume = 0.5f;
+                audioSource.clip = buildOnTile;
+                audioSource.Play();
+
+                // Instantiate the particles
+                Instantiate(buildingParticles, tile.transform.position, tile.transform.rotation);
 
                 // Change the tile's index to the new object index
                 BuildingObject buildingObject = ObjectToPlace.GetComponent<BuildingObject>();
