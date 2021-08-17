@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GridGenerator : MonoBehaviour
 {
+    public bool GridInitialised { get; set; }
+
     [SerializeField] private int rows;
     [SerializeField] private int cols;
     [SerializeField] private float tileSize;
@@ -24,6 +26,8 @@ public class GridGenerator : MonoBehaviour
         gridTile = new List<Tile>();
         gridIndexes = new List<int>();
         gridConnections = new List<int[]>();
+
+        GridInitialised = false;
     }
 
     public void GenerateButton()
@@ -47,7 +51,7 @@ public class GridGenerator : MonoBehaviour
         GenerateGrid();
     }
 
-    private void GenerateGrid()
+    public void GenerateGrid()
     {
         int id = 0;
 
@@ -70,6 +74,8 @@ public class GridGenerator : MonoBehaviour
         transform.position = new Vector3(-gridWidth / 2 + tileSize / 2, 0, gridHeight / 2 - tileSize / 2);
 
         InitGrid();
+
+        GridInitialised = true;
     }
 
     private void InitGrid()
@@ -131,5 +137,32 @@ public class GridGenerator : MonoBehaviour
     public void LocalBacktrackingGrid(int start)
     {
         backtracking.LocalBacktrackingGrid(gridTile, new List<int>(), start);
+    }
+
+    public int GetRows()
+    {
+        return rows;
+    }
+
+    public int GetCols()
+    {
+        return cols;
+    }
+
+    public void SetRowsAndCols(int rows, int cols)
+    {
+        this.rows = rows;
+        this.cols = cols;
+    }
+
+    public List<Tile> GetChildTiles()
+    {
+        List<Tile> tilesList = new List<Tile>();
+
+        for(int i = 0; i < gameObject.transform.childCount; i++) {
+            tilesList.Add(gameObject.transform.GetChild(i).GetComponent<Tile>());
+        }
+
+        return tilesList;
     }
 }

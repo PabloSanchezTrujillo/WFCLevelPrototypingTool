@@ -46,4 +46,13 @@ public class Tile : MonoBehaviour
         Destroy(transform.GetChild(5).gameObject);
         tileButton.ChangeButtonColorToUnoccupied();
     }
+
+    public void LoadTile(int objectIndex)
+    {
+        Occupied = false;
+
+        if(objectIndex != 0) {
+            tileButton.BuildOnTile(tilesList[objectIndex]);
+        }
+    }
 }
