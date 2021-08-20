@@ -21,8 +21,8 @@
                     "Name": "Road_city vertical",
                     "Neighbours": {
                         "TopNeighbours": [0,1,3,4,5,6,7,8,9,11,10,12,16,17],
-                        "LeftNeighbours": [0,2,13,14,15,18,19],
-                        "RightNeighbours": [0,2,13,14,15,18,19],
+                        "LeftNeighbours": [0,2,13,14,15,18,19,20],
+                        "RightNeighbours": [0,2,13,14,15,18,19,20],
                         "BottomNeighbours": [0,1,3,4,5,6,7,8,9,10,11,12,16,17]
                     }
                 },
@@ -31,7 +31,7 @@
                     "Index": 4,
                     "Name": "Road_city three intersection top",
                     "Neighbours": {
-                        "TopNeighbours": [1,3],
+                        "TopNeighbours": [1,3,17],
                         "LeftNeighbours": [1,9,16],
                         "RightNeighbours": [1,10,16],
                         "BottomNeighbours": [0,2,13,14,15,18,19,20]
@@ -45,7 +45,7 @@
                         "TopNeighbours": [0,2,13,14,15,18,19,20],
                         "LeftNeighbours": [1,12,16],
                         "RightNeighbours": [1,11,16],
-                        "BottomNeighbours": [1,3]
+                        "BottomNeighbours": [1,3,17]
                     }
                 },
 
@@ -53,10 +53,10 @@
                     "Index": 6,
                     "Name": "Road_city three intersection right",
                     "Neighbours": {
-                        "TopNeighbours": [1,3],
-                        "LeftNeighbours": [0,19],
-                        "RightNeighbours": [1],
-                        "BottomNeighbours": [1,3]
+                        "TopNeighbours": [1,3,17],
+                        "LeftNeighbours": [0,18,19,20],
+                        "RightNeighbours": [1,16],
+                        "BottomNeighbours": [1,3,17]
                     }
                 },
 
@@ -64,10 +64,10 @@
                     "Index": 7,
                     "Name":"Road_city three intersection left",
                     "Neighbours": {
-                        "TopNeighbours": [1,3],
-                        "LeftNeighbours": [1],
-                        "RightNeighbours": [0,19],
-                        "BottomNeighbours": [1,3]
+                        "TopNeighbours": [1,3,17],
+                        "LeftNeighbours": [1,16],
+                        "RightNeighbours": [0,18,19,20],
+                        "BottomNeighbours": [1,3,17]
                     }
                 },
 
@@ -75,10 +75,10 @@
                     "Index": 8,
                     "Name": "Road_city crossroad",
                     "Neighbours": {
-                        "TopNeighbours": [1,3],
-                        "LeftNeighbours": [1],
-                        "RightNeighbours": [1],
-                        "BottomNeighbours": [1,3]
+                        "TopNeighbours": [1,3,17],
+                        "LeftNeighbours": [1,16],
+                        "RightNeighbours": [1,16],
+                        "BottomNeighbours": [1,3,17]
                     }
                 },
 
@@ -86,10 +86,10 @@
                     "Index": 9,
                     "Name": "Road_city bottom-right turn",
                     "Neighbours": {
-                        "TopNeighbours": [0,2,18,20],
-                        "LeftNeighbours": [0,2,15,18,19,20],
+                        "TopNeighbours": [0,2,13,14,15,18,20],
+                        "LeftNeighbours": [0,2,13,14,15,18,19,20],
                         "RightNeighbours": [1,4,11,16],
-                        "BottomNeighbours": [1,3,17]
+                        "BottomNeighbours": [1,3,4,5,6,7,17]
                     }
                 },
 
@@ -97,10 +97,10 @@
                     "Index": 10,
                     "Name": "Road_city left-bottom turn",
                     "Neighbours": {
-                        "TopNeighbours": [0,2,18,20],
+                        "TopNeighbours": [0,2,13,14,15,18,20],
                         "LeftNeighbours": [1,4,12,16,19],
-                        "RightNeighbours": [0,2,10,18,20],
-                        "BottomNeighbours": [1,3,17]
+                        "RightNeighbours": [0,2,10,13,14,15,18,20],
+                        "BottomNeighbours": [1,3,4,5,6,7,17]
                     }
                 },
 
@@ -109,9 +109,9 @@
                     "Name": "Road_city top-left turn",
                     "Neighbours": {
                         "TopNeighbours": [1,3,9,17],
-                        "LeftNeighbours": [1,5,9,16],
-                        "RightNeighbours": [0,2,18,19,20],
-                        "BottomNeighbours": [0,13,18,20]
+                        "LeftNeighbours": [1,4,5,6,7,9,16],
+                        "RightNeighbours": [0,2,13,14,15,18,19,20],
+                        "BottomNeighbours": [0,2,13,14,15,18,20]
                     }
                 },
 
@@ -119,10 +119,10 @@
                     "Index": 12,
                     "Name": "Road_city right-top turn",
                     "Neighbours": {
-                        "TopNeighbours": [1,3,17],
-                        "LeftNeighbours": [0,2,15,18,19,20],
+                        "TopNeighbours": [1,3,4,5,6,7,17],
+                        "LeftNeighbours": [0,2,13,14,15,18,19,20],
                         "RightNeighbours": [1,5,10,16],
-                        "BottomNeighbours": [0,13,18,20]
+                        "BottomNeighbours": [0,2,13,14,15,18,20]
                     }
                 },
 
@@ -155,9 +155,9 @@
             "Name": "House bottom-look",
             "Neighbours": {
                 "TopNeighbours": [0,1,13,14,15,18],
-                "LeftNeighbours": [0,2,3,14,17],
-                "RightNeighbours": [0,2,3,15,17],
-                "BottomNeighbours": [1,16]
+                "LeftNeighbours": [0,2,3,14,17,18],
+                "RightNeighbours": [0,2,3,15,17,18],
+                "BottomNeighbours": [1,5,16]
             },
 
             "Replacements": [
@@ -165,10 +165,10 @@
                     "Index": 13,
                     "Name": "House top-look",
                     "Neighbours": {
-                        "TopNeighbours": [1,12,16],
-                        "LeftNeighbours": [0,2,11,13,14,17,20],
-                        "RightNeighbours": [0,2,13,15,17,20],
-                        "BottomNeighbours": [0,1,2,14,15,18]
+                        "TopNeighbours": [1,3,4,12,16],
+                        "LeftNeighbours": [0,2,11,13,14,17,18,19,20],
+                        "RightNeighbours": [0,2,13,15,17,18,19,20],
+                        "BottomNeighbours": [0,1,2,14,15,18,19,20]
                     }
                 },
 
@@ -176,10 +176,10 @@
                     "Index": 14,
                     "Name": "House left-look",
                     "Neighbours": {
-                        "TopNeighbours": [0,1,2,14,19],
-                        "LeftNeighbours": [3,11,17],
-                        "RightNeighbours": [0,2,13,14,15,18],
-                        "BottomNeighbours": [0,1,2,14,19]
+                        "TopNeighbours": [0,1,2,14,18,19,20],
+                        "LeftNeighbours": [3,7,10,11,17,18,19,20],
+                        "RightNeighbours": [0,2,13,14,15,18,19,20],
+                        "BottomNeighbours": [0,1,2,14,18,19,20]
                     }
                 },
                  
@@ -187,10 +187,10 @@
                     "Index": 15,
                     "Name": "House right-look",
                     "Neighbours": {
-                        "TopNeighbours": [0,1,2,12,13,15,19],
-                        "LeftNeighbours": [0,2,3,13,14,18],
-                        "RightNeighbours": [3,9,12,17],
-                        "BottomNeighbours": [0,1,2,9,15,19]
+                        "TopNeighbours": [0,1,2,12,13,15,18,19,20],
+                        "LeftNeighbours": [0,2,3,13,14,18,19,20],
+                        "RightNeighbours": [1,3,6,9,12,17],
+                        "BottomNeighbours": [0,1,2,9,15,18,19,20]
                     }
                 }
             ]
@@ -213,7 +213,7 @@
                     "Neighbours": {
                         "TopNeighbours": [3,10,17],
                         "LeftNeighbours": [0,2,13,14,15,18,19,20],
-                        "RightNeighbours": [1],
+                        "RightNeighbours": [1,16],
                         "BottomNeighbours": [3,11,17]
                     }
                 },
@@ -223,7 +223,7 @@
                     "Name": "Road_city three intersection left",
                     "Neighbours": {
                         "TopNeighbours": [3,9,17],
-                        "LeftNeighbours": [1],
+                        "LeftNeighbours": [1,16],
                         "RightNeighbours": [0,2,13,14,15,18,19,20],
                         "BottomNeighbours": [3,12,17]
                     }
@@ -244,9 +244,9 @@
                     "Index": 9,
                     "Name": "Road_city bottom-right turn",
                     "Neighbours": {
-                        "TopNeighbours": [0,2,18,20],
-                        "LeftNeighbours": [0,2,15,18,19],
-                        "RightNeighbours": [1,16],
+                        "TopNeighbours": [0,2,13,14,15,18,20],
+                        "LeftNeighbours": [0,2,13,14,15,15,18,19],
+                        "RightNeighbours": [1,4,5,6,7,16],
                         "BottomNeighbours": [1,3,7,11,17]
                     }
                 },
@@ -255,9 +255,9 @@
                     "Index": 10,
                     "Name": "Road_city left-bottom turn",
                     "Neighbours": {
-                        "TopNeighbours": [0,2,18,20],
-                        "LeftNeighbours": [1,16],
-                        "RightNeighbours": [0,2,14,18,19],
+                        "TopNeighbours": [0,2,13,14,15,18,20],
+                        "LeftNeighbours": [1,4,5,6,7,16],
+                        "RightNeighbours": [0,2,13,14,15,18,19],
                         "BottomNeighbours": [1,3,6,12,17]
                     }
                 },
@@ -267,9 +267,9 @@
                     "Name": "Road_city top-left turn",
                     "Neighbours": {
                         "TopNeighbours": [1,3,6,9,17],
-                        "LeftNeighbours": [1,16],
-                        "RightNeighbours": [0,2,18,19],
-                        "BottomNeighbours": [0,13,18,20]
+                        "LeftNeighbours": [1,4,5,6,7,16],
+                        "RightNeighbours": [0,2,13,14,15,18,19],
+                        "BottomNeighbours": [0,2,13,14,15,18,20]
                     }
                 },
 
@@ -278,9 +278,9 @@
                     "Name": "Road_city right-top turn",
                     "Neighbours": {
                         "TopNeighbours": [1,3,7,10,17],
-                        "LeftNeighbours": [0,2,15,18,19],
-                        "RightNeighbours": [1,16],
-                        "BottomNeighbours": [0,13,18,20]
+                        "LeftNeighbours": [0,2,13,14,15,18,19],
+                        "RightNeighbours": [1,4,5,6,7,16],
+                        "BottomNeighbours": [0,2,13,14,15,18,20]
                     }
                 },
 
@@ -345,10 +345,10 @@
                     "Index": 8,
                     "Name": "Road_city crossroad",
                     "Neighbours": {
-                        "TopNeighbours": [3],
-                        "LeftNeighbours": [1],
-                        "RightNeighbours": [1],
-                        "BottomNeighbours": [1,3]
+                        "TopNeighbours": [3,17],
+                        "LeftNeighbours": [1,16],
+                        "RightNeighbours": [1,16],
+                        "BottomNeighbours": [1,3,17]
                     }
                 }
             ]
@@ -402,10 +402,10 @@
                     "Index": 8,
                     "Name": "Road_city crossroad",
                     "Neighbours": {
-                        "TopNeighbours": [1,3],
-                        "LeftNeighbours": [1],
-                        "RightNeighbours": [1],
-                        "BottomNeighbours": [3]
+                        "TopNeighbours": [1,3,17],
+                        "LeftNeighbours": [1,16],
+                        "RightNeighbours": [1,16],
+                        "BottomNeighbours": [3,17]
                     }
                 }
             ]
@@ -459,10 +459,10 @@
                     "Index": 8,
                     "Name": "Road_city crossroad",
                     "Neighbours": {
-                        "TopNeighbours": [3],
-                        "LeftNeighbours": [1],
-                        "RightNeighbours": [1],
-                        "BottomNeighbours": [3]
+                        "TopNeighbours": [3,17],
+                        "LeftNeighbours": [1,16],
+                        "RightNeighbours": [1,16],
+                        "BottomNeighbours": [3,17]
                     }
                 },
 
@@ -527,10 +527,10 @@
                     "Index": 8,
                     "Name":"Road_city crossroad",
                     "Neighbours": {
-                        "TopNeighbours": [3],
-                        "LeftNeighbours": [1],
-                        "RightNeighbours": [1],
-                        "BottomNeighbours": [3]
+                        "TopNeighbours": [3,17],
+                        "LeftNeighbours": [1,16],
+                        "RightNeighbours": [1,16],
+                        "BottomNeighbours": [3,17]
                     }
                 },
 
@@ -551,10 +551,10 @@
             "Index": 8,
             "Name": "Road_city crossroad",
             "Neighbours": {
-                "TopNeighbours": [3],
-                "LeftNeighbours": [1],
-                "RightNeighbours": [1],
-                "BottomNeighbours": [3]
+                "TopNeighbours": [3,17],
+                "LeftNeighbours": [1,16],
+                "RightNeighbours": [1,16],
+                "BottomNeighbours": [3,17]
             },
 
             "Replacements": [
@@ -620,7 +620,7 @@
                     "Name": "Road_city three intersection right",
                     "Neighbours": {
                         "TopNeighbours": [3,16],
-                        "LeftNeighbours": [0],
+                        "LeftNeighbours": [0,18,19,20],
                         "RightNeighbours": [1,16],
                         "BottomNeighbours": [3,17]
                     }
@@ -630,7 +630,7 @@
                     "Index": 5,
                     "Name": "Road_city three intersection bottom",
                     "Neighbours": {
-                        "TopNeighbours": [0],
+                        "TopNeighbours": [0,18,19,20],
                         "LeftNeighbours": [1,16],
                         "RightNeighbours": [1,16],
                         "BottomNeighbours": [3,17]
@@ -656,7 +656,7 @@
                     "Neighbours": {
                         "TopNeighbours": [3,17],
                         "LeftNeighbours": [1,16],
-                        "RightNeighbours": [0],
+                        "RightNeighbours": [0,18,19,20],
                         "BottomNeighbours": [3,17]
                     }
                 },
@@ -665,7 +665,7 @@
                     "Index": 5,
                     "Name": "Road_city three intersection bottom",
                     "Neighbours": {
-                        "TopNeighbours": [0],
+                        "TopNeighbours": [0,18,19,20],
                         "LeftNeighbours": [1,16],
                         "RightNeighbours": [1,16],
                         "BottomNeighbours": [3,17]
@@ -692,7 +692,7 @@
                         "TopNeighbours": [3,17],
                         "LeftNeighbours": [1,16],
                         "RightNeighbours": [1,16],
-                        "BottomNeighbours": [0]
+                        "BottomNeighbours": [0,18,19,20]
                     }
                 },
 
@@ -702,7 +702,7 @@
                     "Neighbours": {
                         "TopNeighbours": [3,17],
                         "LeftNeighbours": [1,16],
-                        "RightNeighbours": [0],
+                        "RightNeighbours": [0,18,19,20],
                         "BottomNeighbours": [3,17]
                     }
                 }
@@ -727,7 +727,7 @@
                         "TopNeighbours": [3,17],
                         "LeftNeighbours": [1,16],
                         "RightNeighbours": [1,16],
-                        "BottomNeighbours": [0]
+                        "BottomNeighbours": [0,18,19,20]
                     }
                 },
 
@@ -736,7 +736,7 @@
                     "Name": "Road_city three intersection right",
                     "Neighbours": {
                         "TopNeighbours": [3,17],
-                        "LeftNeighbours": [0],
+                        "LeftNeighbours": [0,18,19,20],
                         "RightNeighbours": [1,16],
                         "BottomNeighbours": [3,17]
                     }

@@ -276,11 +276,11 @@ namespace RTS_Cam
             if(ScrollWheel > 0 && m_Transform.localPosition.z < -2.5f) {
                 m_Transform.Translate(new Vector3(0, 0, 1) * scrollWheelZoomingSensitivity, Space.Self);
             }
-            if(ScrollWheel < 0 && m_Transform.localPosition.z > -20) {
+            if(ScrollWheel < 0 && m_Transform.localPosition.z > -28) {
                 m_Transform.Translate(new Vector3(0, 0, -1) * scrollWheelZoomingSensitivity, Space.Self);
             }
             Vector3 cameraPosition = m_Transform.position;
-            cameraPosition.y = Mathf.Clamp(m_Transform.position.y, 2, 20);
+            cameraPosition.y = Mathf.Clamp(m_Transform.position.y, 2, 25);
             //cameraPosition.z = Mathf.Clamp(m_Transform.position.z, -2, -22);
             m_Transform.position = cameraPosition;
             //m_Transform.localEulerAngles = new Vector3(43, 0, 0);
